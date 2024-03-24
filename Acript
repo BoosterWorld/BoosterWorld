@@ -1,0 +1,57 @@
+-- Create the toggle button
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 150, 0, 50)
+toggleButton.Position = UDim2.new(0, 0, 0, 0)
+toggleButton.BackgroundColor3 = Color3.new(1, 1, 1) -- White
+toggleButton.TextColor3 = Color3.new(0, 0, 0) -- Black
+toggleButton.Text = "Toggle GUI"
+toggleButton.Parent = game.Players.LocalPlayer.PlayerGui
+
+-- Create the GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "ZeroIQ Private"
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 200)
+frame.Position = UDim2.new(0.5, -100, 0.5, -100)
+frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black
+frame.BorderSizePixel = 0
+frame.Visible = false
+frame.Parent = gui
+
+-- Create close button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 50, 0, 20)
+closeButton.Position = UDim2.new(1, -50, 0, 0)
+closeButton.BackgroundColor3 = Color3.new(1, 0, 0) -- Red
+closeButton.TextColor3 = Color3.new(1, 1, 1) -- White
+closeButton.Text = "Close"
+closeButton.Parent = frame
+
+-- Create Setemote button
+local setEmoteButton = Instance.new("TextButton")
+setEmoteButton.Size = UDim2.new(0, 100, 0, 50)
+setEmoteButton.Position = UDim2.new(0.5, -50, 0.5, -25)
+setEmoteButton.BackgroundColor3 = Color3.new(1, 1, 0) -- Yellow
+setEmoteButton.TextColor3 = Color3.new(0, 0, 0) -- Black
+setEmoteButton.Text = "Setemote"
+setEmoteButton.Parent = frame
+
+-- Add your script execution logic here
+setEmoteButton.MouseButton1Click:Connect(function()
+    -- Add your script for the Setemote button here
+    print("Setemote button clicked!")
+end)
+
+-- Toggle button functionality
+local guiVisible = false
+toggleButton.MouseButton1Click:Connect(function()
+    guiVisible = not guiVisible
+    frame.Visible = guiVisible
+end)
+
+-- Close button functionality
+closeButton.MouseButton1Click:Connect(function()
+    frame.Visible = false
+end)
